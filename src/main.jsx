@@ -6,7 +6,8 @@ import ErrorView from "./pages/ErrorView.jsx";
 import Start from "./pages/Start.jsx";
 import Nav from "./components/Nav.jsx";
 import Login from "./pages/Login.jsx";
-import DetailsView from "./pages/DetaliView.jsx"; // Make sure the file name is correct
+import DetailsView from "./pages/DetaliView.jsx";
+import AgentsDetailsView from "./pages/AgentsDetails.jsx";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -18,6 +19,7 @@ root.render(
           <Route index element={<Start />} />
           <Route path="/nav" element={<Nav />} />
           <Route path="/details/:id" element={<DetailsView />} />
+          <Route path="/agents/:id" element={<AgentsDetailsView />} />
           <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
