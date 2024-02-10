@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import banner from "../assets/Newsletter.png";
 import Listview from "./ListView";
 import Agents from "../components/Agents";
+import Nav from "../components/Nav";
 
 const Start = () => {
   return (
     <main>
+      <Nav />
       <Listview />
       <section
         className="h-[284px]"

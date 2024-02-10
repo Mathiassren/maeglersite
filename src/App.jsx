@@ -2,15 +2,14 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import "./Index.css";
 import Info from "./components/Info";
-import Nav from "./components/Nav";
-
+import InfoNav from "./components/InfoNav";
 function App() {
   let [darkmode, setDarkmode] = useState(false);
   return (
     <div className={"app " + (darkmode && "dark ")}>
       <div className="dark:bg-black">
         <Info />
-        <Nav />
+        <InfoNav />
         <Outlet context={[darkmode, setDarkmode]} />
       </div>
     </div>

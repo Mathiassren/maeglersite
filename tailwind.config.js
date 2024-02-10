@@ -6,6 +6,7 @@ export default {
       colors: {
         MainBlue: "#162A41",
         Button: "#162A41",
+        Search: "#EEF7FF",
       },
       maxWidth: {
         1080: "1080px",

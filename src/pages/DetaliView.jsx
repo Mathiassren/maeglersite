@@ -18,10 +18,15 @@ const DetailsView = () => {
 
   return (
     <div>
-      <h1>{homeDetails.address1}</h1>
-      <p>Energy Label: {homeDetails.energylabel}</p>
-      <p>Type: {homeDetails.type}</p>
-      <img src={homeDetails.images[0].url} alt="House" />
+      <section></section>
+      <img className="w-full" src={homeDetails.images[0].url} alt="House" />
+      <main className="text-center">
+        <section>
+          <p>Energy Label: {homeDetails.energylabel}</p>
+          <p>Type: {homeDetails.type}</p>
+          <h2>Home: {homeDetails.name}</h2>
+        </section>
+      </main>
     </div>
   );
 };
