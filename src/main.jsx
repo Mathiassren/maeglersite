@@ -8,6 +8,9 @@ import Nav from "./components/Nav.jsx";
 import Login from "./pages/Login.jsx";
 import DetailsView from "./pages/DetaliView.jsx";
 import AgentsDetailsView from "./pages/AgentsDetails.jsx";
+import SaleSite from "./pages/Salesite.jsx";
+import AgentSite from "./pages/AgentSite.jsx";
+import Contact from "./pages/Contact.jsx";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -20,7 +23,10 @@ root.render(
           <Route path="/nav" element={<Nav />} />
           <Route path="/details/:id" element={<DetailsView />} />
           <Route path="/agents/:id" element={<AgentsDetailsView />} />
+          <Route path="/sale" element={<SaleSite />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/agentsite" element={<AgentSite />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
     </Router>

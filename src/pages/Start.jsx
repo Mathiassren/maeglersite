@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import banner from "../assets/Newsletter.png";
 import Listview from "./ListView";
 import Agents from "../components/Agents";
-import Nav from "../components/Nav";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Store from "../components/Store";
 
 const Start = () => {
   return (
     <main>
-      <Nav />
+      <Header />
       <Listview />
       <section
         className="h-[284px]"
@@ -29,6 +31,8 @@ const Start = () => {
         </form>
       </section>
       <Agents />
+      <Store />
+      <Footer />
     </main>
   );
 };

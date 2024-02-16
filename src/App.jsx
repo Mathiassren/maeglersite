@@ -7,7 +7,7 @@ function App() {
   let [darkmode, setDarkmode] = useState(false);
   return (
     <div className={"app " + (darkmode && "dark ")}>
-      <div className="dark:bg-black">
+      <div className="">
         <Info />
         <InfoNav />
         <Outlet context={[darkmode, setDarkmode]} />
