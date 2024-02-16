@@ -18,7 +18,6 @@ const DetailsView = () => {
 
   return (
     <div>
-      <section></section>
       <img className="w-full" src={homeDetails.images[0].url} alt="House" />
       <main className="text-center">
         <section>
