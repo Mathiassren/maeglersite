@@ -11,6 +11,7 @@ import AgentsDetailsView from "./pages/AgentsDetails.jsx";
 import SaleSite from "./pages/Salesite.jsx";
 import AgentSite from "./pages/AgentSite.jsx";
 import Contact from "./pages/Contact.jsx";
+import Fav from "./pages/Favourites.jsx";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -27,6 +28,7 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/agentsite" element={<AgentSite />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/fav" element={<Fav />} />
         </Route>
       </Routes>
     </Router>
