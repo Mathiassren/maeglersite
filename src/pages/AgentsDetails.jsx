@@ -2,18 +2,30 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FaPhone, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import Banner from "../components/ContactHeader";
+import ReactLoading from "react-loading";
+
 const AgentsDetailsView = () => {
   const [agent, setAgentDetails] = useState(null);
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`https://dinmaegler.onrender.com/agents/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setAgentDetails(data);
+        setIsLoading(false);
       })
       .catch((error) => console.error("Error fetching agent details:", error));
   }, [id]);
+
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <ReactLoading type="bars" color="#0000FF" height={"5%"} width={"5%"} />
+      </div>
+    );
 
   if (!agent)
     return (
