@@ -1,21 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
+import ReactLoading from "react-loading"; // Make sure to import ReactLoading
 
 const Listview = () => {
   const [homes, setHomes] = useState([]);
   const [showAll, setShowAll] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Step 1: Add loading state
 
   useEffect(() => {
+    setIsLoading(true); // Start loading before fetching data
     fetch("https://dinmaegler.onrender.com/homes")
       .then((response) => response.json())
       .then((data) => {
         setHomes(data);
+        setIsLoading(false); // Stop loading after data is fetched
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false); // Stop loading if an error occurs
+      });
   }, []);
 
+  if (isLoading) {
+    // Step 2: Display loading animation if isLoading is true
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <ReactLoading type="bars" color="#0000FF" height={100} width={100} />
+      </div>
+    );
+  }
+
   return (
-    <div className="text-center p-4">
+    <div className="text-center p-4 bg-gray-100">
       <h1 className="text-3xl font-bold mb-4">Udvalgte Boliger</h1>
       <p className="mb-8">
         There are many variations of passages of Lorem Ipsum available, but the
