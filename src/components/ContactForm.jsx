@@ -1,6 +1,6 @@
 const ContactForm = () => {
   return (
-    <section className="w-[650px] h-[704px] mt-4 shadow ">
+    <section className="w-[650px] h-[704px]  shadow ">
       <div className="ml-[40px] pt-[40px]">
         <h2 className="pb-[12px] font-bold">Kontakt</h2>
         <hr className="w-16 border-t-4 mb-[20px] border-Button" />
@@ -31,7 +31,7 @@ const ContactForm = () => {
       </div>
       <div className="ml-[40px] mb-[20px]">
         <p className="mb-2">Emne</p>
-        <input
+        <textarea
           className="border w-[570px] px-3 py-2"
           type="text"
           placeholder="Hvad drejer din henvendelse om?"
@@ -39,11 +39,10 @@ const ContactForm = () => {
       </div>
       <div className="ml-[40px]">
         <p className="mb-2">Besked</p>
-        <input
-          className="border w-[570px] h-[180px]"
-          type="text"
+        <textarea
+          className="border w-[570px] h-[180px] p-4"
           placeholder="Skriv din besked her.."
-        />
+        ></textarea>
       </div>{" "}
       <button className="ml-[40px] mt-[30px] w-[168px] h-[62px] bg-Button text-white">
         Send besked
