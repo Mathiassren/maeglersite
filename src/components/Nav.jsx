@@ -24,12 +24,16 @@ const Nav = () => {
                   <a>Mæglere</a>
                 </li>
               </Link>
-              <li>
-                <a>Mine favoritter</a>
-              </li>
-              <li>
-                <a>Kontakt os</a>
-              </li>
+              <Link to="/fav">
+                <li>
+                  <a>Mine favoritter</a>
+                </li>
+              </Link>
+              <Link to="/contact">
+                <li>
+                  <a>Kontakt os</a>
+                </li>
+              </Link>
             </ul>
           </nav>
         </section>

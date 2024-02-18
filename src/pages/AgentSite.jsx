@@ -11,9 +11,6 @@ const AgentSite = () => {
         </header>
         <AgentsList />
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 };
