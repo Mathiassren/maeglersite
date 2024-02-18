@@ -1,5 +1,5 @@
 import React from "react";
-import Heroimg from "../assets/Hero.jpg"; // Ensure this path is correct relative to this file
+import Heroimg from "../assets/banner_2.jpg"; // Ensure this path is correct relative to this file
 
 const Hero = () => {
   return (

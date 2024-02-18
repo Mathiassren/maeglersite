@@ -47,11 +47,10 @@ const FooterComponent = () => {
                 </ul>
               </div>
             </div>
-
             <div className="w-full sm:w-1/2 lg:w-1/4 mb-6">
               <h2 className="text-gray-900 text-sm font-semibold mb-3">
                 Quick Links
-              </h2>
+              </h2>{" "}
               <nav className="list-none">
                 <li className="mb-3">
                   <a href="#" className="text-gray-600 hover:text-gray-800">
@@ -72,7 +71,12 @@ const FooterComponent = () => {
                   <a href="#" className="text-gray-600 hover:text-gray-800">
                     Log ind / bliv bruger
                   </a>
-                </li>
+                </li>{" "}
+                <div className="w-[250px]">
+                  <p className="mt-[190px]">Medlem af</p>
+                  <h2 className="text-3xl font-bold text-gray-500">DMS</h2>
+                  <p>Dansk Mægler Sammenslutning</p>
+                </div>
               </nav>
             </div>
           </div>
@@ -83,8 +87,8 @@ const FooterComponent = () => {
               Din Mægler Roskilde, en del af boligkæden | Boligudvalget
             </p>
           </div>
-        </div>{" "}
-      </div>{" "}
+        </div>
+      </div>
       <div className="bg-Button text-white h-[90px] items-center flex justify-center">
         <p className="">Layout by UI Bazar 2020</p>
       </div>
