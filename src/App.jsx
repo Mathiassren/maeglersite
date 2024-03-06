@@ -1,21 +1,23 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutlet } from "react-router-dom";
 import "./Index.css";
 import Info from "./components/Info";
 import InfoNav from "./components/InfoNav";
 import Footer from "./components/Footer";
+import { AuthProvider } from "./components/Auth/AuthContext";
 
 function App() {
-  let [darkmode, setDarkmode] = useState(false);
+  const [darkmode, setDarkmode] = useState(false);
+
   return (
-    <div className={"app " + (darkmode && "dark ")}>
-      <div className="">
+    <AuthProvider>
+      <div className={"app " + (darkmode && "dark ")}>
         <Info />
         <InfoNav />
-        <Outlet context={[darkmode, setDarkmode]} />
+        <Outlet />
         <Footer />
       </div>
-    </div>
+    </AuthProvider>
   );
 }
 

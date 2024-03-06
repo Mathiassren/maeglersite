@@ -24,8 +24,10 @@ const Listview = () => {
   if (isLoading) {
     // Step 2: Display loading animation if isLoading is true
     return (
-      <div className="flex justify-center items-center h-screen">
-        <ReactLoading type="bars" color="#0000FF" height={100} width={100} />
+      <div className="flex flex-col justify-center items-center h-screen">
+        <ReactLoading type="bars" color="#162A41" height={100} width={100} />
+
+        <p className="text-2xl">Vent venligst mens boligerne hentes</p>
       </div>
     );
   }
@@ -76,10 +78,10 @@ const Listview = () => {
       </div>
       {homes.length > 4 && (
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-[#162A41] hover:bg-blue-700 text-white py-2 px-4"
           onClick={() => setShowAll(!showAll)}
         >
-          {showAll ? "Show Less" : "Show More"}
+          {showAll ? "Se mindre" : "Se alle boliger"}
         </button>
       )}
     </div>

@@ -24,8 +24,9 @@ const Agents = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <ReactLoading type="bars" color="#0000FF" height={"5%"} width={"5%"} />
+      <div className="flex flex-col justify-center items-center h-screen">
+        <ReactLoading type="bars" color="#162A41" height={"5%"} width={"5%"} />
+        <p className="text-2xl mt-10">Vent venligst mens alle mæglere hentes</p>
       </div>
     );
   }

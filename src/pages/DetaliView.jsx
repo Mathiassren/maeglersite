@@ -4,11 +4,18 @@ import Horisontal from "../assets/Horisontal.png";
 import Layers from "../assets/Layers.png";
 import Map from "../assets/Map.png";
 import Heart from "../assets/Heart.png";
-import { FaPhone, FaPaperPlane } from "react-icons/fa6";
+import {
+  FaPhone,
+  FaPaperPlane,
+  FaInstagram,
+  FaSkype,
+  FaLinkedinIn,
+} from "react-icons/fa6";
 
 const DetailsView = () => {
   const [homeDetails, setHomeDetails] = useState(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { id } = useParams();
 
@@ -96,6 +103,7 @@ const DetailsView = () => {
                 onClick={() => openLightbox(0)}
               />
               <img className="cursor-pointer" src={Layers} alt="" />
+
               <img className="cursor-pointer" src={Map} alt="" />
               <img className="cursor-pointer" src={Heart} alt="" />
             </div>
@@ -138,12 +146,16 @@ const DetailsView = () => {
             </p>
             <section className="shadow ml-[43px] w-[730px] h-[354px] items-center justify-center flex ">
               <img
-                className="w-[280px] h-[200px]"
+                className="w-[400px] h-auto"
                 src={homeDetails.agent.image.url}
                 alt=""
               />
-
-              <div className="text-left ml-10">
+              <div className="relative p-2 gap-2 items-center text-3xl flex top-10 right-[400px] bg-Button text-white h-[40px]">
+                <FaLinkedinIn className="cursor-pointer" />
+                <FaSkype className="cursor-pointer" />
+                <FaInstagram className="cursor-pointer" />
+              </div>
+              <div className="text-left">
                 <p className="font-bold text-2xl pb-4">
                   {homeDetails.agent.name}
                 </p>

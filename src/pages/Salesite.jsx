@@ -9,6 +9,7 @@ const Listview = () => {
   const [showAll, setShowAll] = useState(false);
   const [propertyType, setPropertyType] = useState("");
   const [maxPrice, setMaxPrice] = useState(12000000);
+  const [energy, setEnergy] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -30,10 +31,11 @@ const Listview = () => {
     const filtered = homes.filter(
       (home) =>
         (propertyType ? home.type === propertyType : true) &&
-        home.price <= maxPrice
+        home.price <= maxPrice &&
+        (energy ? home.energylabel === energy : true) // Filter by energy label
     );
     setFilteredHomes(filtered);
-  }, [propertyType, maxPrice, homes]);
+  }, [propertyType, maxPrice, energy, homes]);
 
   return (
     <section>
@@ -47,13 +49,19 @@ const Listview = () => {
         </div>
 
         {isLoading ? (
-          <div className="flex justify-center items-center h-screen">
+          <div
+            className="flex flex-col just
+          ify-center items-center h-screen"
+          >
             <ReactLoading
               type="bars"
-              color="#0000FF"
+              color="#162A41"
               height={"5%"}
               width={"5%"}
             />
+            <p className="text-2xl">
+              Vent venligst mens listen af boliger hentes
+            </p>
           </div>
         ) : (
           <>
@@ -70,6 +78,19 @@ const Listview = () => {
                   <option value="Byhus">Byhus</option>
                   <option value="Landejendom">Landejendom</option>
                   <option value="Ejerlejlighed">Ejerlejlighed</option>
+                </select>
+              </div>
+              <div>
+                <select
+                  className="shadow border rounded py-2 px-3 text-gray-700"
+                  value={energy}
+                  onChange={(e) => setEnergy(e.target.value)}
+                >
+                  <option value="">Alle Energimærker</option>
+                  <option value="A">Mærke A</option>
+                  <option value="B">Mærke B</option>
+                  <option value="C">Mærke C</option>
+                  <option value="D">Mærke D</option>
                 </select>
               </div>
 
@@ -130,15 +151,17 @@ const Listview = () => {
                   </Link>
                 ))}
             </div>
-
-            {filteredHomes.length > 4 && (
-              <button
-                className="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => setShowAll(!showAll)}
-              >
-                {showAll ? "Show Less" : "Show More"}
-              </button>
-            )}
+            <div className="flex justify-center">
+              {" "}
+              {filteredHomes.length > 4 && (
+                <button
+                  className="bg-[#162A41] text-center hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={() => setShowAll(!showAll)}
+                >
+                  {showAll ? "Vis mindre" : "Vi flere boliger"}
+                </button>
+              )}
+            </div>
           </>
         )}
       </div>

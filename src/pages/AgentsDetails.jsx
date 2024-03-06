@@ -23,7 +23,7 @@ const AgentsDetailsView = () => {
   if (isLoading)
     return (
       <div className="flex justify-center items-center h-screen">
-        <ReactLoading type="bars" color="#0000FF" height={"5%"} width={"5%"} />
+        <ReactLoading type="bars" color="#162A41" height={"5%"} width={"5%"} />
       </div>
     );
 
