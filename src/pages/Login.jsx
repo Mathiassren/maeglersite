@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../components/Auth/AuthContext"; // Correct the path as necessary
+import ReactLoading from "react-loading";
 
 function LoginForm() {
   const { login } = useAuth();
@@ -7,20 +8,23 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const toggleForm = () => {
     setIsSignUp(!isSignUp);
     setLoginError("");
   };
 
+  //loading logic
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoginError("");
+    setIsLoading(true);
     try {
       await login(email, password);
-      console.log("Logged in successfully!"); // Console message upon successful login
+      setIsLoading(false);
     } catch (error) {
       setLoginError(error.message || "Login failed");
+      setIsLoading(false);
     }
   };
 
@@ -73,14 +77,25 @@ function LoginForm() {
                     <div className="flex justify-center items-center mt-4">
                       <button
                         type="submit"
-                        className="w-full px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
+                        className="w-full px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 flex justify-center items-center"
                       >
-                        Log ind
-                        {loginError && (
-                          <p className="text-red-500">{loginError}</p>
+                        {isLoading ? (
+                          <ReactLoading
+                            type="spin"
+                            color="#fff"
+                            height={20}
+                            width={20}
+                          />
+                        ) : (
+                          "Log ind"
                         )}
                       </button>
                     </div>
+                    {loginError && (
+                      <p className="text-red-500 text-center mt-4">
+                        {loginError}
+                      </p>
+                    )}
                   </form>
                 </div>
                 <div className="">
