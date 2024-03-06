@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Outlet, useOutlet } from "react-router-dom";
-import "./Index.css";
 import Info from "./components/Info";
 import InfoNav from "./components/InfoNav";
 import Footer from "./components/Footer";
