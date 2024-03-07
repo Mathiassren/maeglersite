@@ -8,7 +8,7 @@ export function useAuth() {
 }
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [userProfile, setUserProfile] = useState(null);
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
         setToken(data.jwt);
         localStorage.setItem("token", data.jwt);
         fetchUserProfile();
-        navigate("/fav"); // Navigate to another page after login
+        navigate("/"); // Navigate to another page after login
       } else {
         throw new Error(data.message || "Login failed");
       }
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     setUserProfile(null);
     localStorage.removeItem("token");
-    navigate("/fav"); // Optional: Navigate to login page after logout
+    navigate("/"); // Optional: Navigate to login page after logout
   };
 
   const fetchUserProfile = async () => {
