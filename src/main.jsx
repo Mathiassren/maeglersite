@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import App from "./App.jsx";
+import "./index.css";
 import ErrorView from "./pages/ErrorView.jsx";
 import Start from "./pages/Start.jsx";
 import Nav from "./components/Nav.jsx";
@@ -12,6 +13,7 @@ import SaleSite from "./pages/Salesite.jsx";
 import AgentSite from "./pages/AgentSite.jsx";
 import Contact from "./pages/Contact.jsx";
 import Fav from "./pages/Favourites.jsx";
+import ProtectedRoute from "./components/Auth/ProtectedRoute.jsx";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -28,7 +30,14 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/agentsite" element={<AgentSite />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/fav" element={<Fav />} />
+          <Route
+            path="/fav"
+            element={
+              <ProtectedRoute>
+                <Fav />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </Router>

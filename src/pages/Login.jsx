@@ -92,9 +92,13 @@ function LoginForm() {
                       </button>
                     </div>
                     {loginError && (
-                      <p className="text-red-500 text-center mt-4">
-                        {loginError}
-                      </p>
+                      <div className="text-center">
+                        {" "}
+                        <p className="text-red-500 text-center mt-4">
+                          Forkert email eller password
+                        </p>
+                        <a>Glemt email/password</a>
+                      </div>
                     )}
                   </form>
                 </div>

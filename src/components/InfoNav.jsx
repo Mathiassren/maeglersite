@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../components/Auth/AuthContext"; // Correct the path as necessary
 import Logo from "../assets/Logo.png";
 
 const InfoNav = () => {
+  const { token } = useAuth(); // Use the token to determine if the user is logged in
+
   return (
     <div className="bg-white shadow">
       <div className="max-w-6xl mx-auto w-full px-10">
@@ -21,11 +24,13 @@ const InfoNav = () => {
                   <a>Mæglere</a>
                 </li>
               </Link>
-              <Link to="/fav">
-                <li>
-                  <a>Mine favoritter</a>
-                </li>
-              </Link>
+              {token && ( // Conditionally render this link if the user is logged in
+                <Link to="/fav">
+                  <li>
+                    <a>Mine favoritter</a>
+                  </li>
+                </Link>
+              )}
               <Link to="/contact">
                 <li>
                   <a>Kontakt os</a>
