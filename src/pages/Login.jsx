@@ -3,7 +3,7 @@ import { useAuth } from "../components/Auth/AuthContext"; // Correct the path as
 import ReactLoading from "react-loading";
 
 function LoginForm() {
-  const { login } = useAuth();
+  const { login, logout, token } = useAuth();
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +20,11 @@ function LoginForm() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await login(email, password);
+      if (token) {
+        await logout();
+      } else {
+        await login(email, password);
+      }
       setIsLoading(false);
     } catch (error) {
       setLoginError(error.message || "Login failed");
@@ -86,6 +90,8 @@ function LoginForm() {
                             height={20}
                             width={20}
                           />
+                        ) : token ? (
+                          "Log out"
                         ) : (
                           "Log ind"
                         )}
@@ -111,8 +117,11 @@ function LoginForm() {
                     <button className="px-4 py-2 w-[170px] text-white bg-blue-600 rounded-md hover:bg-blue-800 flex items-center justify-center mx-2">
                       Facebook
                     </button>
-                    <button className="px-4 py-2 w-[170px] text-white bg-blue-400 rounded-md hover:bg-blue-600 flex items-center justify-center mx-2">
-                      X
+                    <button
+                      className="px-4 py-2 w-[170px] text-white bg-blue-400 rounded-md hover:bg-blue-600 flex items-center justify-center mx-2"
+                      onClick={toggleForm}
+                    >
+                      {isSignUp ? "Tilbage" : "X"}
                     </button>
                   </div>
                 </div>

@@ -13,7 +13,7 @@ import customer from "../assets/customer.png";
 
 const Start = () => {
   return (
-    <main className="dark:bg-black">
+    <main className="">
       <Header />
       <div className="bg-white mx-auto max-w-1080 pb-[217px] rounded-lg p-6">
         <div className="flex justify-between items-center mb-4">

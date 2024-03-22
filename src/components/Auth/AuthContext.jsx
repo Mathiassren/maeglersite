@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
         setToken(data.jwt);
         localStorage.setItem("token", data.jwt);
         fetchUserProfile();
-        navigate("/"); // Navigate to another page after login
+        navigate("/login"); // Navigate to another page after login
       } else {
         throw new Error(data.message || "Login failed");
       }
